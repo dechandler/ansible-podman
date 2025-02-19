@@ -1,3 +1,4 @@
 ---
 - name: dechandler/base-user
-  src: git+https://github.com/dechandler/base-user
+  src: https://github.com/dechandler/ansible-base-user
+  type: git

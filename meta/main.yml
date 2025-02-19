@@ -46,7 +46,3 @@ galaxy_info:
     #
     # NOTE: A tag is limited to a single word comprised of alphanumeric characters.
     #       Maximum 20 tags per role.
-
-dependencies:
-  - name: dechandler.systogony.base-user
-    src: git+https://github.com/dechandler/podman-utils

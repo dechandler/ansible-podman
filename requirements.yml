@@ -1,4 +1,3 @@
 ---
-dependencies:
-  - name: dechandler.base-user
-    src: git+https://github.com/dechandler/base-user
+- name: dechandler/base-user
+  src: git+https://github.com/dechandler/base-user

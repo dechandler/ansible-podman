@@ -1,0 +1,15 @@
+---
+systemctl: >-
+  systemctl {%
+    if SVC.user != "root"
+      %} --user -M {{ SVC.user }}@{%
+    endif
+  %}
+
+systemd_service_dir: >-
+  {%  if SVC.user == "root"
+        %}/etc/systemd/system{%
+      else
+        %}{{ SVC.home }}/.config/systemd/user/{{ SVC.name }}.service{%
+      endif
+  %}

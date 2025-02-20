@@ -1,4 +1,6 @@
 ---
+autoupdate: True
+
 systemctl: >-
   systemctl {%
     if SVC.user != "root"

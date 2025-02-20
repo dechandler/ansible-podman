@@ -31,14 +31,3 @@
     owner: "{{ _user.name }}"
     group: "{{ _user.name }}"
   become: True
-
-
-- name: >
-    create : {{ _user.name }}
-    : Enable podman autoupdate timer
-  command:
-    cmd: >-
-      systemctl --user -M {{ _user.name }}@
-      enable --now podman-auto-update.timer
-    creates: "{{ _user.home }}/.config/systemd/user/timers.target.wants/podman-auto-update.timer"
-  become: True

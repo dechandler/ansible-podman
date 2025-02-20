@@ -19,3 +19,13 @@
     cmd: "{{ systemctl }} daemon-reload"
   become: True
   when: systemd_service_file.changed
+
+
+- name: >
+    service-file : {{ _user.name }}
+    : Enable podman autoupdate timer
+  command:
+    cmd: "{{ systemctl }} enable --now podman-auto-update.timer"
+    creates: "{{ systemd_service_dir }}/timers.target.wants/podman-auto-update.timer"
+  become: True
+  when: autoupdate

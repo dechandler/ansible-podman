@@ -1,0 +1,9 @@
+---
+- name: >
+    setup
+    : Copy image build script for redhat-based hosts
+  copy:
+    src: build-redhat.sh
+    dest: /usr/local/libexec/image-build.sh
+    mode: 0755
+  become: True

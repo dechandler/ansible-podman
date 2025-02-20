@@ -1,0 +1,26 @@
+---
+- name: >
+    update-job
+    : Install build job to daily cron
+  copy:
+    dest: /etc/cron.daily/build-{{ IMG.name }}.sh
+    content: |
+      #!/bin/bash
+      /usr/local/libexec/image-build.sh {{
+          IMG.name }} {{
+          IMG.base_image_type }} {{
+          IMG.version_track_package }} {{
+          IMG.install_packages }}
+    mode: 0755
+  become: True
+
+
+- name: >
+    update-job
+    : Run image build script
+  command:
+    cmd: /etc/cron.daily/build-{{ IMG.name }}.sh
+  become: True
+  register: build_out
+  changed_when: >
+    "Already version" not in build_out.stdout

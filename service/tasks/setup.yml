@@ -1,6 +1,13 @@
 ---
 - name: >
     setup : {{ SVC.name }}
+    : Ensure podman installed
+  dnf:
+    name: podman
+  become: True
+
+- name: >
+    setup : {{ SVC.name }}
     : Ensure specified subdirectories
   file:
     path: "{{ SVC.home }}/{{ item }}"
